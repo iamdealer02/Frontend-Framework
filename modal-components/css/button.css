@@ -1,0 +1,40 @@
+button {
+    color: white;
+    padding: 0.7em 1em;
+    cursor: pointer;
+    margin: 0.7em;
+    border: none;
+    font-family: inherit;
+    border-radius: 4px;
+
+}
+
+
+.primary-btn {
+    background-color: var(--primary-color);
+    transition: all 180ms ease-in-out;
+}
+
+.primary-btn:hover {
+    box-shadow: 0px -2px 27px 2px #bb34fb61;
+
+}
+
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    transition: all 180ms ease-in-out;
+}
+
+.secondary-btn:hover {
+    box-shadow: 0px -2px 27px 2px #2cdb8385;
+}
+
+.third-color {
+    background-color: var(--third-color);
+    transition: all 180ms ease-in-out;
+}
+
+.third-color:hover {
+    box-shadow: 0px -2px 27px 2px #fbab3438;
+}

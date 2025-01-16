@@ -1,0 +1,11 @@
+.navElement a {
+    background-color: transparent;
+    padding: .5em;
+    text-decoration: none;
+    color: white;
+    transition: all ease-in-out 230ms;
+}
+
+.navElement a:hover {
+    background-color: #BB34FB;
+}
