@@ -1,3 +1,10 @@
+# Application Demo
+
+<div style="display: flex; justify-content: space-around; align-items: center; gap: 10px;">
+  <img src="./assets/notes.jpg" alt="Notes" style="width: 45%; height: auto;">
+  <img src="./assets/noteDetails.jpg" alt="Note Details" style="width: 45%; height: auto;">
+</div>
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
