@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import CarouselComp from '../components/CarouselComp'
 
 function Apartment() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [activeAccordion, setActiveAccordion] = useState(null)
   const [apartment, setApartment] = useState(null)
   const [relatedApartments, setRelatedApartments] = useState([])
   const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/data/data.json')
@@ -27,17 +29,6 @@ function Apartment() {
     return <div>Loading...</div>
   }
 
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? apartment.pictures.length - 1 : prev - 1
-    )
-  }
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === apartment.pictures.length - 1 ? 0 : prev + 1
-    )
-  }
 
   const accordionData = [
     {
@@ -58,17 +49,7 @@ function Apartment() {
 
   return (
     <main>
-      <div className="carousel">
-        <div className="carousel-item">
-          <img src={apartment.pictures[currentImageIndex]} alt={`image ${currentImageIndex + 1}`} />
-        </div>
-        <button className="back-arrow" onClick={handlePrevImage}>
-          <img src="/assets/arrow_back.png" alt="back arrow" />
-        </button>
-        <button className="forward-arrow" onClick={handleNextImage}>
-          <img src="/assets/arrow_forward.png" alt="forward arrow" />
-        </button>
-      </div>
+    <CarouselComp pictures={apartment.pictures} />
       <article className="apartment">
         <h2>{apartment.title}</h2>
         <p>{apartment.location}</p>

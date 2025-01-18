@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import BannerComp from '../components/BannerComp'
 import CardComp from '../components/CardComp'
-import { data } from 'react-router-dom'
-
 
 function Home() {
     const [apartments, setApartments] = useState([])
