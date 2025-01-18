@@ -1,0 +1,43 @@
+.carousel {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    /* max-height: 305px; */
+    min-height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .carousel-item {
+    position: absolute;
+    inset: 0;
+}
+
+.carousel img {
+    aspect-ratio: 335/ 224;
+    object-fit: cover;
+}
+
+.carousel button {
+    position: relative;
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.281);
+    padding: .5em;
+}
+
+/* larger screens */
+@media only screen and (min-width: 768px) {
+    .carousel {
+        min-height: 410px;
+    }
+
+    .carousel button {
+        padding: 2.5em 1.5em;
+    }
+
+    .carousel button img {
+        min-width: 40px;
+    }
+}
