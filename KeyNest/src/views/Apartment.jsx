@@ -9,6 +9,15 @@ function Apartment() {
   const [relatedApartments, setRelatedApartments] = useState([])
   const { id } = useParams()
   const navigate = useNavigate()
+  const TagsMap = () => {
+    if (apartment?.tags) {
+        return apartment.tags.map((tag, index) => (
+            <div key={index} className="tag">
+            {tag}
+            </div>
+        ))
+        }
+  }
 
   useEffect(() => {
     fetch('/data/data.json')
@@ -54,9 +63,7 @@ function Apartment() {
         <h2>{apartment.title}</h2>
         <p>{apartment.location}</p>
         <div className="tags-container">
-          {apartment.tags.map((tag, index) => (
-            <div key={index} className="tag">{tag}</div>
-          ))}
+            <TagsMap />
         </div>
         <div className="stars-container">
           {[...Array(5)].map((_, index) => (
