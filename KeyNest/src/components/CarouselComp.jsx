@@ -17,7 +17,13 @@ function CarouselComp({pictures}) {
   return (
     <div className="carousel">
     <div className="carousel-item">
-      <img src={pictures[currentImageIndex]} alt={`image ${currentImageIndex + 1}`} />
+    <img 
+        key={currentImageIndex}
+        src={pictures[currentImageIndex]} 
+        alt={`image ${currentImageIndex + 1}`} 
+        className='fade'
+        />
+
     </div>
     <button className="back-arrow" onClick={handlePrevImage}>
       <img src="/assets/arrow_back.png" alt="back arrow" />

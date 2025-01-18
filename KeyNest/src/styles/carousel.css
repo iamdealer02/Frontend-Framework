@@ -26,6 +26,21 @@
     background-color: rgba(128, 128, 128, 0.281);
     padding: .5em;
 }
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.7s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.2;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
 
 /* larger screens */
 @media only screen and (min-width: 768px) {
