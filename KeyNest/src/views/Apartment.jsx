@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import CarouselComp from '../components/CarouselComp'
 import AccordionComp from '../components/AccordionComp'
+import RelatedApt from '../components/RelatedApt'
 
 function Apartment() {
   const [apartment, setApartment] = useState(null)
@@ -89,16 +90,7 @@ function Apartment() {
       <hr style={{ marginTop: '1em' }} />
       <section className="related-section">
         <h2>You might also like</h2>
-        <div className="related-container">
-          {relatedApartments.map((item) => (
-            <Link key={item.id} to={`/apartment/${item.id}`} data-discover="true">
-              <article className="card">
-                <h3>{item.title}</h3>
-                <img className="card-img" src={item.cover} alt={item.title} />
-              </article>
-            </Link>
-          ))}
-        </div>
+        <RelatedApt relatedApartments={relatedApartments} />
       </section>
     </main>
   )

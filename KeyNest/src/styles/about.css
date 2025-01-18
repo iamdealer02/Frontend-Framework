@@ -16,13 +16,6 @@
     margin-bottom: .75em;
 }
 
-.about section img {
-    object-fit: cover;
-    aspect-ratio: 16 / 7;
-    max-height: 230px;
-    width: 100%;
-    object-position: bottom;
-}
 
 .about-container {
     padding: var(--space-size);

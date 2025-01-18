@@ -1,46 +1,41 @@
-import { useState } from 'react'
-import '../styles/about.css'
-import BannerComp from '../components/BannerComp'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import '../styles/about.css';
+import BannerComp from '../components/BannerComp';
+import data_en from '../../data/data.about.en.json';
+import data_fr from '../../data/data.about.fr.json';
+import data_sp from '../../data/data.about.sp.json';
 
 function About() {
-  const [activeAccordion, setActiveAccordion] = useState(null)
+  const [activeAccordion, setActiveAccordion] = useState(null);
+  const [content, setContent] = useState(data_en);
+  const { language: urlLanguage } = useParams();
+  const reduxLanguage = useSelector((state) => state.language);
 
-  const accordionData = [
-    {
-      title: 'Reliability',
-      content:
-        'The listings posted on KeyNest guarantee complete reliability. The photos match the accommodations, and all information is regularly verified by our teams.',
-    },
-    {
-      title: 'Service',
-      content:
-        'Our teams are at your disposal to provide you with a perfect experience. Feel free to contact us if you have any questions.',
-    },
-    {
-      title: 'Respect',
-      content:
-        'Kindness is one of KeyNest\'s core values. Any discriminatory behavior or disturbance to the neighborhood will result in exclusion from our platform.',
-    },
-    {
-      title: 'Security',
-      content:
-        'Safety is Kasa\'s top priority. For both our hosts and travelers, each accommodation meets the safety criteria established by our services. We also organize domestic safety workshops for our hosts.',
-    },
-  ]
+  useEffect(() => {
+    const getContent = () => {
+      const currentLanguage = urlLanguage || reduxLanguage || 'en';
+      switch (currentLanguage) {
+        case 'fr':
+          return data_fr;
+        case 'es':
+          return data_sp;
+        default:
+          return data_en;
+      }
+    };
+
+    setContent(getContent());
+  }, [urlLanguage, reduxLanguage]);
 
   return (
     <main className="about">
-      <h1>KeyNest's values</h1>
-      <BannerComp imageUrl={"/assets/cabin.jpg"}/>
-      <article>
-        Welcome to KeyNest, your go-to platform for finding unique and welcoming
-        accommodations across Paris and its surroundings. Whether you're looking for
-        a cozy studio near Montmartre, a family suite by Montparnasse, or a
-        luxurious loft in La Défense, we have a wide range of options tailored to
-        your needs.
-      </article>
+      <h1>{content.title}</h1>
+      <BannerComp imageUrl="/assets/cabin.jpg" />
+      <article>{content.description}</article>
       <div className="about-container">
-        {accordionData.map((item, index) => (
+        {content.accordions && content.accordions.map((item, index) => (
           <div
             key={index}
             className={`accordion-about ${
@@ -64,7 +59,7 @@ function About() {
         ))}
       </div>
     </main>
-  )
+  );
 }
 
-export default About
+export default About;

@@ -24,3 +24,31 @@
     font-size: 12px;
     transform: translateX(-5px);
 }
+
+/* In your footer.css file */
+.footer {
+    /* ... existing styles ... */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .language-selector {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .language-selector button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #ccc;
+    background-color: #1b060e;
+    cursor: pointer;
+  }
+  
+  .language-selector button.active {
+    background-color: #070405;
+    border: 1px solid #5b74f2;
+    font-weight: bold;
+  }
+  
