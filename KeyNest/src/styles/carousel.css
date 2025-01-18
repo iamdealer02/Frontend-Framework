@@ -55,4 +55,72 @@
     .carousel button img {
         min-width: 40px;
     }
+
+    /* for expanding the image */
+    
 }
+
+.carousel-item {
+    position: relative;
+  }
+  
+  .eye-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(35, 35, 35, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .eye-overlay:hover {
+    background: rgba(54, 54, 54, 0.7);
+  }
+  
+  .expanded-image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .expanded-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+  }
+  
+  .expanded-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .close-button:hover {
+    opacity: 0.8;
+  }
+  
+  .fade {
+    transition: opacity 0.3s ease-in-out;
+  }
