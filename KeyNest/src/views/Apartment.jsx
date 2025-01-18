@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import CarouselComp from '../components/CarouselComp'
+import AccordionComp from '../components/AccordionComp'
 
 function Apartment() {
-  const [activeAccordion, setActiveAccordion] = useState(null)
   const [apartment, setApartment] = useState(null)
   const [relatedApartments, setRelatedApartments] = useState([])
   const { id } = useParams()
@@ -83,26 +83,7 @@ function Apartment() {
       </article>
       <div className="apartment-accordion-container">
         {accordionData.map((item, index) => (
-          <div
-            key={index}
-            className={`accordion-item ${
-              activeAccordion === index ? 'active' : ''
-            }`}
-          >
-            <div
-              className="accordion-header"
-              role="button"
-              onClick={() =>
-                setActiveAccordion(activeAccordion === index ? null : index)
-              }
-            >
-              <h2>{item.title}</h2>
-              <button>
-                <img src="/assets/arrow.svg" alt="arrow" />
-              </button>
-            </div>
-            <div className="accordion-body">{item.content}</div>
-          </div>
+          <AccordionComp key={index} item={item} index={index} />
         ))}
       </div>
       <hr style={{ marginTop: '1em' }} />
