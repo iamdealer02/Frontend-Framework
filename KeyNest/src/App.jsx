@@ -6,6 +6,7 @@ import Home from './views/Home'
 import About from './views/About'
 import Apartment from './views/Apartment'
 import './App.css'
+import NotFound from './views/NotFound'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/apartment/:id" element={<Apartment />} />
+          <Route path="/not-found" element = {<NotFound /> }/>
         </Routes>
         <Footer />
       </div>
