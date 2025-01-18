@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import CarouselComp from '../components/CarouselComp'
 import AccordionComp from '../components/AccordionComp'
 import RelatedApt from '../components/RelatedApt'
+import data from '../../data/data.json'
 
 function Apartment() {
   const [apartment, setApartment] = useState(null)
@@ -21,18 +22,14 @@ function Apartment() {
   }
 
   useEffect(() => {
-    fetch('/data/data.json')
-      .then((response) => response.json())
-      .then((data) => {
         const currentApartment = data.find((apt) => apt.id === id)
         if (!currentApartment) {
-            // If no apartment is found, navigate to NotFound page
             navigate('/not-found')
             return
-          }
+        }
         setApartment(currentApartment)
         setRelatedApartments(data.filter((apt) => apt.id !== id).slice(0, 3))
-      })
+      
   }, [id])
 
   if (!apartment) {
