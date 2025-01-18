@@ -6,9 +6,9 @@ import BannerComp from '../components/BannerComp';
 import data_en from '../../data/data.about.en.json';
 import data_fr from '../../data/data.about.fr.json';
 import data_sp from '../../data/data.about.sp.json';
+import AboutAccordion from '../components/AboutAccordion';
 
 function About() {
-  const [activeAccordion, setActiveAccordion] = useState(null);
   const [content, setContent] = useState(data_en);
   const { language: urlLanguage } = useParams();
   const reduxLanguage = useSelector((state) => state.language);
@@ -36,26 +36,7 @@ function About() {
       <article>{content.description}</article>
       <div className="about-container">
         {content.accordions && content.accordions.map((item, index) => (
-          <div
-            key={index}
-            className={`accordion-about ${
-              activeAccordion === index ? 'active' : ''
-            }`}
-          >
-            <div
-              className="accordion-about-header"
-              role="button"
-              onClick={() =>
-                setActiveAccordion(activeAccordion === index ? null : index)
-              }
-            >
-              <h2>{item.title}</h2>
-              <button>
-                <img src="/assets/arrow.svg" alt="arrow" />
-              </button>
-            </div>
-            <div className="accordion-about-body">{item.content}</div>
-          </div>
+         <AboutAccordion key={index} item={item} />
         ))}
       </div>
     </main>

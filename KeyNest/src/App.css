@@ -31,7 +31,6 @@ main {
 
 
 .cards-container {
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
@@ -43,12 +42,25 @@ main {
 }
 
 .cards-container a {
+    flex: 0 1 calc(33.333% - 1em);
+    min-width: 280px;
     max-width: 414px;
-    min-width: 320px;
-    width: 100%;
     display: block;
     aspect-ratio: 9/6 auto;
 }
+
+@media screen and (max-width: 1200px) {
+    .cards-container a {
+        flex: 0 1 calc(50% - 1em);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards-container a {
+        flex: 0 1 100%;
+    }
+}
+
 
 .apartment {
     align-items: center;

@@ -6,13 +6,12 @@ function CardComp({id, title, cover}) {
     <Link key={id} to={`/apartment/${id}`}>
     <article className="card">
       <h3>{title}</h3>
-      (
         <img 
           className="card-img" 
           src={cover} 
           alt="key house" 
         />
-      )
+      
     </article>
   </Link>
   )
